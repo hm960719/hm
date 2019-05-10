@@ -1,0 +1,174 @@
+{include file='layout' /}
+    <!-- //header-ends -->
+    <!-- main content start-->
+    <!-- 内容区域  -->
+    <div id="page-wrapper">
+
+      <!-- 内容区域  -->
+      <div class="row">
+            <h3 class="title1">会员注册</h3>
+            <div class="form-three widget-shadow">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">账号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="{$account_id}" id="account" readonly  class="form-control1"  placeholder="">
+                        </div>
+                        <div class="col-sm-2" >
+                            <p class="help-block">Your help text!</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">推荐人账号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value=""  name="tui_account"  class="form-control1" id="tui_account" placeholder=" ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">接点人账号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="jie_account"  class="form-control1" id="jie_account" placeholder=" ">
+                        </div>
+                        <div class="col-sm-2" >
+                            <p class="help-block">接点人姓名</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">服务中心账号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value=""  name="ser_account" class="form-control1" id="ser_account" placeholder=" ">
+                        </div>
+                        <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkbox" class="col-sm-2 control-label">位置</label>
+                        <div class="col-sm-8">
+                            <div class="checkbox-inline1"><label><input name="addres" value="1" type="radio"> 左区</label></div>
+                            <div class="checkbox-inline1"><label><input name="addres" value="2" type="radio" checked=""> 右区</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">选择套餐</label>
+                        <div class="col-sm-8"><select name="selector1" id="menus" name="menus" class="form-control1">
+                            <option value="" selected="">请认真选择套餐</option>
+                            <option value="6">A套装：雅璨护肤</option>
+                            <option value="7">B套装：保健产品</option>
+                            <option value="8">C套装：精彩生活</option>
+                            <option value="9">D套装：醋蛋液</option>
+                            <option value="10">E套装： 多肽焕颜奢宠礼盒（冻干粉）</option>
+                            <option value="11">F套装：人参肽套装</option>
+                            <option value="12">G套装：燕窝胶原蛋白肽青汁</option>
+                            <option value="18">H套装：足浴液</option>
+                            <option value="18">I套装：黑茶银耳蛹虫草套餐</option>
+                        </select></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="name"  class="form-control1" id="name" placeholder="请输入真实姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">身份证号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="idcode"  class="form-control1" id="idcode" placeholder="请输入身份证号 ">
+                        </div>
+                        <!-- <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">昵称</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="nick"  class="form-control1" id="nick" placeholder="请输入昵称">
+                        </div>
+                        <!-- <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">手机号</label>
+                        <div class="col-sm-8">
+                            <input type="text" value=""  name="phone" class="form-control1" id="phone" placeholder="请输入手机号">
+                        </div>
+                        <!-- <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">收货人</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="jie_name"  class="form-control1" id="jie_name" placeholder="请输入收货人姓名">
+                        </div>
+                        <!-- <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">收货人电话</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="jie_phone"  class="form-control1" id="jie_phone" placeholder="请输入收货人电话">
+                        </div>
+                        <!-- <div class="col-sm-2" >
+                            <p class="help-block">服务中心账号</p>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">收货地址</label>
+                        <div class="col-sm-8">
+                            <input type="text" value="" name="jie_addres"  class="form-control1" id="jie_addres" placeholder="请输入收货地址">
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <button type="button" onclick="reg()" style="display:block;margin:0 auto" class="btn btn-default">提交注册</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 内容区域  -->
+	<!--footer-->
+    <!--//footer-->
+	</div>
+    <script>
+
+
+        function reg(){
+            var data = {}
+            // 参数获取
+            data.account         = $("#account").val();
+            data.tui_account     = $("#tui_account").val()
+            data.jie_account     = $("#jie_account").val()
+            data.ser_account     = $("#ser_account").val()
+            data.addres          = $("input[name='addres']:checked").val()
+            data.package         = $("#menus option:selected").val()
+            data.name            = $("#name").val()
+            data.idcode          = $("#idcode").val()
+            data.nickname        = $("#nick").val()
+            data.phone           = $("#phone").val()
+            data.receive_name    = $("#jie_name").val()
+            data.receive_phone   = $("#jie_phone").val()
+            data.receive_addres  = $("#jie_addres").val()
+
+            $.ajax({
+                type:"post",
+                url:"/index/users/register",
+                dataType:"JSON",
+                data:data,
+                success:function(data){
+                    console.log(data);return false;
+                    if(data.code == 200){
+                        location.href = "{:url('index/index')}"
+                    }else{
+                        alert(data.data);
+                        return false;
+                    }
+                }
+            })
+        }
+
+    </script>
+{include file='footer' /}

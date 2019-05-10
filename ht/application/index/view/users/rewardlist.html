@@ -1,0 +1,121 @@
+{include file='layout' /}
+
+<div id="page-wrapper" style="min-height: 337px;">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">物流信息</h2>
+                <div class="form-body">
+                        <div data-example-id="simple-form-inline"> 
+                            <form class="form-inline" method="get" action="rewardlist"> 
+                                <div class="form-group"> 
+                                    <input type="int" class="form-control" name="time" value="{$time}" id="account" placeholder="请输入时间">
+                                </div>
+                                <div class="input-append date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <input class="span2" size="16" type="text" value="12-02-2012">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>            
+                                <button type="submit" class="btn btn-default">搜索</button> 
+                            </form> 
+                        </div>
+                </div>
+                <div class="table-responsive bs-example widget-shadow">
+                    <h4>物流信息:</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>时间</th>
+                              <th>层奖</th>
+                              <th>量奖</th>
+                              <th>伯乐奖</th>
+                              <th>福利奖</th>
+                              <th>服务费</th>
+                              <th>税率</th>
+                              <th>实发</th>
+                            </tr>
+                        </thead>
+                        <tbody id="List">
+                            {volist name="list" id="vo"}
+                                <tr>
+                                <td>{$vo.time}</td>
+                                <td>{$vo.ceng_reward}</td>
+                                <td>{$vo.liang_reward}</td>
+                                <td>{$vo.bole_reward}</td>
+                                <td>{$vo.fuli_reward}</td>
+                                <td>{$vo.fuwu_reward}</td>
+                                <td>{$vo.shuilv}</td>
+                                <td>{$vo.shifa}</td>
+                            </tr>
+                            {/volist}
+                        </tbody>
+                    </table>
+                    <div class="col-md-12" style="text-align: center; margin:0 auto">
+                        <nav style="margin:0 auto">
+                                {$list->render()}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+// 初始化页面
+function List(p)
+{
+    var data   = {}
+    data.page  = p
+    data.input = 13223
+	$.ajax({
+		type: 'POST',
+		url: "/index/users/",
+        data:data,
+		dataType:'json',
+		
+		success:function(msg)
+		{
+			var msg = eval(msg);
+			var page = msg['page'];
+			obj = msg['list'];
+			if(msg['code']==0)
+			{
+				// 玩家列表
+				var List = '';
+				for (var i = 0; i < obj.length; i++)
+				{
+					List+='<tr>';
+					List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+					List+='</tr>';
+				}
+				$('#List').html(List);
+				// 分页按钮
+				var pageList = '';
+				for (var i = 0; i < page.length; i++) 
+				{
+					if( page[i][1]== p){
+						pageList+='<li class="active"><a href="javascript:List('+page[i][1]+')">'+page[i][0]+'</a></li>';
+					}else{
+						pageList+='<li><a href="javascript:List('+page[i][1]+')">'+page[i][0]+'</a></li>';
+					}
+					
+				}
+				$('#pageList').html(pageList);
+			}
+			else
+			{
+				alert(msg['errmsg']);
+			}
+		},
+		error:function()
+		{
+			alert('网络错误');
+		}
+	});
+}
+</script>
+{include file='footer' /}

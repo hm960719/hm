@@ -1,0 +1,120 @@
+{include file='layout' /}
+
+<div id="page-wrapper" style="min-height: 337px;">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">物流信息</h2>
+                <div class="form-body">
+                        <div data-example-id="simple-form-inline"> 
+                            <form class="form-inline" method="get" action="logistics"> 
+                                <div class="form-group"> 
+                                    <input type="int" class="form-control" name="account" value="{$account}" id="account" placeholder="请输入账号ID">
+                                </div>
+                                <div class="form-group"> 
+                                    <input type="text" class="form-control" name="name" value="{$name}" id="name" placeholder="请输入收货人名称"> 
+                                </div>
+                                <button type="submit" class="btn btn-default">搜索</button> 
+                            </form> 
+                        </div>
+                </div>
+                <div class="table-responsive bs-example widget-shadow">
+                    <h4>物流信息:</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th>时间</th>
+                              <th>账号</th>
+                              <th>手机号</th>
+                              <th>收货人</th>
+                              <th>收货地址</th>
+                              <th>套餐</th>
+                              <th>状态</th>
+                              <th>物流</th>
+                            </tr>
+                        </thead>
+                        <tbody id="List">
+                            {volist name="list" id="vo"}
+                                <tr>
+                                <td>{$vo.create_time}</td>
+                                <td>{$vo.account}</td>
+                                <td>{$vo.phone}</td>
+                                <td>{$vo.name}</td>
+                                <td>{$vo.addres}</td>
+                                <td>{$vo.pakeage}</td>
+                                <td>{$vo.status}</td>
+                                <td>{$vo.info}</td>
+                            </tr>
+                            {/volist}
+                        </tbody>
+                    </table>
+                    <div class="col-md-12" style="text-align: center; margin:0 auto">
+                        <nav style="margin:0 auto">
+                                {$list->render()}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+// 初始化页面
+function List(p)
+{
+    var data   = {}
+    data.page  = p
+    data.input = 13223
+	$.ajax({
+		type: 'POST',
+		url: "/index/users/",
+        data:data,
+		dataType:'json',
+		
+		success:function(msg)
+		{
+			var msg = eval(msg);
+			var page = msg['page'];
+			obj = msg['list'];
+			if(msg['code']==0)
+			{
+				// 玩家列表
+				var List = '';
+				for (var i = 0; i < obj.length; i++)
+				{
+					List+='<tr>';
+					List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+                    List+='<td>'+obj[i]['account']+'</td>';
+					List+='</tr>';
+				}
+				$('#List').html(List);
+				// 分页按钮
+				var pageList = '';
+				for (var i = 0; i < page.length; i++) 
+				{
+					if( page[i][1]== p){
+						pageList+='<li class="active"><a href="javascript:List('+page[i][1]+')">'+page[i][0]+'</a></li>';
+					}else{
+						pageList+='<li><a href="javascript:List('+page[i][1]+')">'+page[i][0]+'</a></li>';
+					}
+					
+				}
+				$('#pageList').html(pageList);
+			}
+			else
+			{
+				alert(msg['errmsg']);
+			}
+		},
+		error:function()
+		{
+			alert('网络错误');
+		}
+	});
+}
+</script>
+{include file='footer' /}
